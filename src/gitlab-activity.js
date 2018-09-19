@@ -85,9 +85,13 @@ var GitLabActivity = (function() {
 				
                 var icon;
 
-                if (p.action_name == 'created' || p.action_name == "pushed new") {
+                if (p.action_name == 'created' || p.action_name == "pushed new" || p.action_name == "imported") {
                     data.type = "CreateEvent";
-                    if (p.push_data == null) {
+					if(p.action_name == "imported"){
+						p.ref_type = "project";
+                        icon = icons[data.type + '_imported'];
+					}
+                    else if (p.push_data == null) {
 						p.ref_type = "project";
                         icon = icons[data.type + '_repository'];
                     }
@@ -480,7 +484,7 @@ var templates = {
                  <div class="gha-user-info{{withoutName}}">{{{userNameLink}}}<p>{{{userLink}}}</p></div>\
                  <div class="gha-gravatar">{{{gravatarLink}}}</div>\
                </div><div class="gha-push"></div>',
-        Footer: '<div class="gha-footer">Public Activity <a href="https://github.com/caseyscarborough/github-activity" target="_blank">GitLab Activity Stream</a>',
+        Footer: '<div class="gha-footer">Public Activity <a href="https://gitlab.com/Coding-Hen/gitlab-activity" target="_blank">GitLab Activity Stream</a>',
         NoActivity: '<div class="gha-info">This user does not have any public activity yet.</div>',
         UserNotFound: '<div class="gha-info">User {{username}} wasn\'t found.</div>',
         EventsNotFound: '<div class="gha-info">Events for user {{username}} not found.</div>',
@@ -509,6 +513,7 @@ var templates = {
         CreateEvent_repository: 'repo-create',
         CreateEvent_tag: 'tag-add',
         CreateEvent_branch: 'git-branch-create',
+        CreateEvent_imported: 'repo-push',
         DeleteEvent: 'repo-delete',
         FollowEvent: 'person-follow',
         ForkEvent: 'repo-forked',
