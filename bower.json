@@ -1,12 +1,12 @@
 {
-  "name": "GitHub Activity Stream",
-  "main": "github-activity.js",
+  "name": "Gitlab Activity Stream",
+  "main": "gitlab-activity.js",
   "version": "0.1.5",
-  "homepage": "https://github.com/caseyscarborough/github-activity",
+  "homepage": "https://gitlab.com/Coding-Hen/gitlab-activity",
   "authors": [
-    "Casey Scarborough <caseyscarborough@gmail.com>"
+	"Henry Slim <henry.j.l.slim@gmail.com>"
   ],
-  "description": "A widget for displaying GitHub activity for a user.",
+  "description": "A widget for displaying Gitlab activity for a user. Based on GitHub activity by Casey Scarborough (https://github.com/caseyscarborough/github-activity)",
   "keywords": [
     "github"
   ],

@@ -2,7 +2,7 @@ var config = {
   dist: 'dist',
   bower: 'bower_components',
   src: 'src',
-  banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - Copyright 2015 <%= pkg.author %> */\n'
+  banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - Copyright 2018 <%= pkg.author %> */\n'
 };
 
 var pkg = require('./package.json');
@@ -46,8 +46,8 @@ module.exports = function(grunt) {
           banner: config.banner
         },
         files: {
-          '<%= config.dist %>/github-activity-<%= pkg.version %>.min.css': [
-            '<%= config.src %>/github-activity.css'
+          '<%= config.dist %>/gitlab-activity-<%= pkg.version %>.min.css': [
+            '<%= config.src %>/gitlab-activity.css'
           ],
           '<%= config.dist %>/octicons/octicons.min.css': [
             '<%= config.bower %>/octicons/octicons/octicons.css'
@@ -61,8 +61,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          '<%= config.dist %>/github-activity-<%= pkg.version %>.min.js': [
-            '<%= config.src %>/github-activity.js'
+          '<%= config.dist %>/gitlab-activity-<%= pkg.version %>.min.js': [
+            '<%= config.src %>/gitlab-activity.js'
           ],
           '<%= config.dist %>/mustache/mustache.min.js': [
             '<%= config.bower %>/mustache/mustache.js'

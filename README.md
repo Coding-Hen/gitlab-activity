@@ -1,6 +1,7 @@
-# GitHub Activity Stream Widget
+# Gitlab Activity Stream Widget
+# This is a modified copy of the Github-activity by caseyscarborough (https://github.com/caseyscarborough/github-activity)
 
-This is a small Javascript plugin that creates a stream of your recent GitHub activity. It displays the user's name, username, photo, and a list of each individual activity type. Click [here](https://caseyscarborough.github.io/github-activity) for a demo.
+This is a small Javascript plugin that creates a stream of your recent Gitlab activity. It displays the user's name, username, photo, and a list of each individual activity type. Click [here](https://www.henry-slim.co.uk/gitlab-activity-demo) for a demo.
 
 A sample image of the activity stream is shown below:
 
@@ -15,10 +16,10 @@ The two dependencies for the plugin are the [Mustache](https://github.com/janl/m
 <link rel="stylesheet" href="github-activity-0.1.5.min.css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
-<script type="text/javascript" src="github-activity-0.1.5.min.js"></script>
+<script type="text/javascript" src="gitlab-activity.min.js"></script>
 ```
 
-The files can be downloaded from the [releases page](https://github.com/caseyscarborough/github-activity/releases).
+The files can be downloaded from the [tags page](https://gitlab.com/Coding-Hen/gitlab-activity/tags).
 
 If you'd like to build the files yourself:
 
@@ -28,8 +29,8 @@ npm install bower
 npm install grunt-cli
 
 # Clone the repository
-git clone https://github.com/caseyscarborough/github-activity.git
-cd github-activity
+git clone https://gitlab.com/Coding-Hen/gitlab-activity.git
+cd gitlab-activity
 
 # Install dependencies
 bower install
@@ -49,7 +50,7 @@ To use the library, begin by creating a new div with an id in the body of your p
 Then call the feed method via Javascript:
 
 ```js
-GitHubActivity.feed({
+GitLabActivity.feed({
 	username: "your-username",
 	repository: "your-repo", // optional
 	selector: "#feed",
@@ -60,13 +61,4 @@ GitHubActivity.feed({
 ## Credits
 
 * [MD5 Methods](http://www.myersdaily.org/joseph/javascript/md5-text.html)
-
-## Fork and Enjoy
-
-Please feel free to contribute to the application by following the steps below:
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* [Github-activity] (https://github.com/caseyscarborough/github-activity)
