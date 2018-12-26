@@ -144,7 +144,7 @@ var GitLabActivity = (function() {
             }
 
             for (var i = 0; i < limit; i++) {
-                if (data.length - 1 == i) {
+                if (data.length - 1 == i || i == limit - 1) {
                     lastItem = true;
                 }
                 text += methods.getMessageFor(data[i]);
