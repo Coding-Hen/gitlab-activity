@@ -82,6 +82,7 @@ var GitLabActivity = (function() {
                 if (p.action_name === 'ForkEvent') data.forkLink = methods.renderGitLabLink(p.forkee.full_name);
 				if (p.action_name == "deleted") data.type = "DeleteEvent";
 				if (p.action_name == "pushed to") data.type = "PushEvent";
+				if (p.action_name == "closed") data.type = "IssuesEvent";				
 				
                 var icon;
 
