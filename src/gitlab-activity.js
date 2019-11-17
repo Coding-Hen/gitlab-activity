@@ -205,7 +205,70 @@ var GitLabActivity = (function() {
             }
         }
     };
+	var templates = {
+        Stream: '<div class="gha-feed">{{{text}}}<div class="gha-push-small"></div>{{{footer}}}</div>',
+        Activity: '<div id="{{id}}" class="gha-activity">\
+               <div class="gha-activity-icon"><span class="octicon octicon-{{icon}}"></span></div>\
+               <div class="gha-message"><div class="gha-time">{{{timeString}}}</div>{{{userLink}}} {{{message}}}</div>\
+               <div class="gha-clear"></div>\
+             </div>',
+        SingleLineActivity: '<div class="gha-activity gha-small">\
+                         <div class="gha-activity-icon"><span class="octicon octicon-{{icon}}"></span></div>\
+                         <div class="gha-message"><div class="gha-time">{{{timeString}}}</div>{{{userLink}}} {{{message}}}</div>\
+                         <div class="gha-clear"></div>\
+                       </div>',
+        UserHeader: '<div class="gha-header">\
+                 <div class="gha-github-icon"><span class="octicon octicon-mark-github"></span></div>\
+                 <div class="gha-user-info{{withoutName}}">{{{userNameLink}}}<p>{{{userLink}}}</p></div>\
+                 <div class="gha-gravatar">{{{gravatarLink}}}</div>\
+               </div><div class="gha-push"></div>',
+        Footer: '<div class="gha-footer">Public Activity <a href="https://gitlab.com/Coding-Hen/gitlab-activity" target="_blank">GitLab Activity Stream</a>',
+        NoActivity: '<div class="gha-info">This user does not have any public activity yet.</div>',
+        UserNotFound: '<div class="gha-info">User {{username}} wasn\'t found.</div>',
+        EventsNotFound: '<div class="gha-info">Events for user {{username}} not found.</div>',
+        CommitCommentEvent: 'commented on commit {{{commentLink}}}<br><small>{{comment}}</small>',
+        CreateEvent: '{{action_name}} {{ref_type}} {{{branchLink}}}{{{repoLink}}}',
+        DeleteEvent: 'deleted {{ref_type}} {{push_data.ref}} at {{{repoLink}}}<br>',
+        FollowEvent: 'started following {{{targetLink}}}',
+        ForkEvent: 'forked {{{repoLink}}} to {{{forkLink}}}',
+        GistEvent: '{{actionType}} {{{gistLink}}}',
+        GollumEvent: '{{actionType}} the {{{repoLink}}} wiki<br><small>{{{message}}}</small>',
+        IssueCommentEvent: 'commented on {{issueType}} {{{issueLink}}}<br><small>{{comment}}</small>',
+        IssuesEvent: '{{action_name}} issue {{{issueLink}}} at {{{repoLink}}}<br><small>{{target_title}}</small>',
+        MemberEvent: 'added {{{memberLink}}} to {{{repoLink}}}',
+        PublicEvent: 'open sourced {{{repoLink}}}',
+        PullRequestEvent: '{{payload.action}} pull request {{{pullRequestLink}}}<br><small>{{payload.pull_request.title}}</small>{{{mergeMessage}}}',
+        PullRequestReviewCommentEvent: 'commented on pull request {{{pullRequestLink}}}<br><small>{{comment}}</small>',
+        PushEvent: 'pushed to {{ref_type}} {{{branchLink}}}{{{repoLink}}}<br>\
+                <ul class="gha-commits">{{#payload.commits}}<li><small>{{{committerGravatar}}} {{message}}</small></li>{{/payload.commits}}</ul>\
+                <small class="gha-message-commits">{{{commitsMessage}}}</small>',
+        ReleaseEvent: 'released {{{tagLink}}} at {{{repoLink}}}<br><small><span class="octicon octicon-cloud-download"></span>  {{{zipLink}}}</small>',
+        WatchEvent: 'starred {{{repoLink}}}'
+    },
 
+    icons = {
+        CommitCommentEvent: 'comment-discussion',
+        CreateEvent_repository: 'repo-create',
+        CreateEvent_tag: 'tag-add',
+        CreateEvent_branch: 'git-branch-create',
+        CreateEvent_imported: 'repo-push',
+        DeleteEvent: 'repo-delete',
+        FollowEvent: 'person-follow',
+        ForkEvent: 'repo-forked',
+        GistEvent: 'gist',
+        GollumEvent: 'repo',
+        IssuesEvent: 'issue-opened',
+        IssueCommentEvent: 'comment-discussion',
+        MemberEvent: 'person',
+        PublicEvent: 'globe',
+        PullRequestEvent: 'git-pull-request',
+        PullRequestReviewCommentEvent: 'comment-discussion',
+        PushEvent: 'git-commit',
+        ReleaseEvent: 'tag-add',
+        WatchEvent: 'star'
+    },
+
+    singleLineActivities = ['CreateEvent', 'DeleteEvent', 'FollowEvent', 'ForkEvent', 'GistEvent', 'MemberEvent', 'WatchEvent'];
     obj.feed = function(options) {
         if (!options.username || !options.selector) {
             throw "You must specify the username and selector options for the activity stream.";
@@ -467,68 +530,3 @@ if (md5("hello") != "5d41402abc4b2a76b9719d911017c592") {
         return (b << 16) | (c & 65535)
     }
 };
-
-var templates = {
-        Stream: '<div class="gha-feed">{{{text}}}<div class="gha-push-small"></div>{{{footer}}}</div>',
-        Activity: '<div id="{{id}}" class="gha-activity">\
-               <div class="gha-activity-icon"><span class="octicon octicon-{{icon}}"></span></div>\
-               <div class="gha-message"><div class="gha-time">{{{timeString}}}</div>{{{userLink}}} {{{message}}}</div>\
-               <div class="gha-clear"></div>\
-             </div>',
-        SingleLineActivity: '<div class="gha-activity gha-small">\
-                         <div class="gha-activity-icon"><span class="octicon octicon-{{icon}}"></span></div>\
-                         <div class="gha-message"><div class="gha-time">{{{timeString}}}</div>{{{userLink}}} {{{message}}}</div>\
-                         <div class="gha-clear"></div>\
-                       </div>',
-        UserHeader: '<div class="gha-header">\
-                 <div class="gha-github-icon"><span class="octicon octicon-mark-github"></span></div>\
-                 <div class="gha-user-info{{withoutName}}">{{{userNameLink}}}<p>{{{userLink}}}</p></div>\
-                 <div class="gha-gravatar">{{{gravatarLink}}}</div>\
-               </div><div class="gha-push"></div>',
-        Footer: '<div class="gha-footer">Public Activity <a href="https://gitlab.com/Coding-Hen/gitlab-activity" target="_blank">GitLab Activity Stream</a>',
-        NoActivity: '<div class="gha-info">This user does not have any public activity yet.</div>',
-        UserNotFound: '<div class="gha-info">User {{username}} wasn\'t found.</div>',
-        EventsNotFound: '<div class="gha-info">Events for user {{username}} not found.</div>',
-        CommitCommentEvent: 'commented on commit {{{commentLink}}}<br><small>{{comment}}</small>',
-        CreateEvent: '{{action_name}} {{ref_type}} {{{branchLink}}}{{{repoLink}}}',
-        DeleteEvent: 'deleted {{ref_type}} {{push_data.ref}} at {{{repoLink}}}',
-        FollowEvent: 'started following {{{targetLink}}}',
-        ForkEvent: 'forked {{{repoLink}}} to {{{forkLink}}}',
-        GistEvent: '{{actionType}} {{{gistLink}}}',
-        GollumEvent: '{{actionType}} the {{{repoLink}}} wiki<br><small>{{{message}}}</small>',
-        IssueCommentEvent: 'commented on {{issueType}} {{{issueLink}}}<br><small>{{comment}}</small>',
-        IssuesEvent: '{{action_name}} issue {{{issueLink}}} at {{{repoLink}}}<br><small>{{target_title}}</small>',
-        MemberEvent: 'added {{{memberLink}}} to {{{repoLink}}}',
-        PublicEvent: 'open sourced {{{repoLink}}}',
-        PullRequestEvent: '{{payload.action}} pull request {{{pullRequestLink}}}<br><small>{{payload.pull_request.title}}</small>{{{mergeMessage}}}',
-        PullRequestReviewCommentEvent: 'commented on pull request {{{pullRequestLink}}}<br><small>{{comment}}</small>',
-        PushEvent: 'pushed to {{ref_type}} {{{branchLink}}}{{{repoLink}}}<br>\
-                <ul class="gha-commits">{{#payload.commits}}<li><small>{{{committerGravatar}}} {{message}}</small></li>{{/payload.commits}}</ul>\
-                <small class="gha-message-commits">{{{commitsMessage}}}</small>',
-        ReleaseEvent: 'released {{{tagLink}}} at {{{repoLink}}}<br><small><span class="octicon octicon-cloud-download"></span>  {{{zipLink}}}</small>',
-        WatchEvent: 'starred {{{repoLink}}}'
-    },
-
-    icons = {
-        CommitCommentEvent: 'comment-discussion',
-        CreateEvent_repository: 'repo-create',
-        CreateEvent_tag: 'tag-add',
-        CreateEvent_branch: 'git-branch-create',
-        CreateEvent_imported: 'repo-push',
-        DeleteEvent: 'repo-delete',
-        FollowEvent: 'person-follow',
-        ForkEvent: 'repo-forked',
-        GistEvent: 'gist',
-        GollumEvent: 'repo',
-        IssuesEvent: 'issue-opened',
-        IssueCommentEvent: 'comment-discussion',
-        MemberEvent: 'person',
-        PublicEvent: 'globe',
-        PullRequestEvent: 'git-pull-request',
-        PullRequestReviewCommentEvent: 'comment-discussion',
-        PushEvent: 'git-commit',
-        ReleaseEvent: 'tag-add',
-        WatchEvent: 'star'
-    },
-
-    singleLineActivities = ['CreateEvent', 'DeleteEvent', 'FollowEvent', 'ForkEvent', 'GistEvent', 'MemberEvent', 'WatchEvent'];
