@@ -5,7 +5,7 @@ This is a small Javascript plugin that creates a stream of your recent Gitlab ac
 
 A sample image of the activity stream is shown below:
 
-![](https://imgur.com/nIsK5ZS)
+![](https://i.imgur.com/nIsK5ZS.png)
 
 ## Dependencies
 
