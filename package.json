@@ -1,6 +1,6 @@
 {
   "name": "gitlab-activity",
-  "version": "0.1.5",
+  "version": "1.0.1",
   "description": "A widget for displaying Gitlab activity for a user. Based on GitHub activity by Casey Scarborough (https://github.com/caseyscarborough/github-activity)",
   "main": "Gruntfile.js",
   "devDependencies": {
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://gitlab.com/Coding-Hen/gitlab-activity.git"
+    "url": "git@github.com:Coding-Hen/gitlab-activity.git"
   },
   "keywords": [
     "gitlab"
@@ -23,7 +23,7 @@
   "author": "Henry Slim",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/Coding-Hen/gitlab-activity/issues"
+    "url": "https://github.com/Coding-Hen/gitlab-activity/issues"
   },
-  "homepage": "https://gitlab.com/Coding-Hen/gitlab-activity"
+  "homepage": "https://github.com/Coding-Hen/gitlab-activity"
 }

@@ -222,7 +222,7 @@ var GitLabActivity = (function() {
                  <div class="gha-user-info{{withoutName}}">{{{userNameLink}}}<p>{{{userLink}}}</p></div>\
                  <div class="gha-gravatar">{{{gravatarLink}}}</div>\
                </div><div class="gha-push"></div>',
-        Footer: '<div class="gha-footer">Public Activity <a href="https://gitlab.com/Coding-Hen/gitlab-activity" target="_blank">GitLab Activity Stream</a>',
+        Footer: '<div class="gha-footer">Public Activity <a href="https://github.com/Coding-Hen/gitlab-activity" target="_blank">GitLab Activity Stream</a>',
         NoActivity: '<div class="gha-info">This user does not have any public activity yet.</div>',
         UserNotFound: '<div class="gha-info">User {{username}} wasn\'t found.</div>',
         EventsNotFound: '<div class="gha-info">Events for user {{username}} not found.</div>',
