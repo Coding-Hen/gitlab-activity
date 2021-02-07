@@ -13,7 +13,7 @@ The two dependencies for the plugin are the [Mustache](https://github.com/janl/m
 
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-<link rel="stylesheet" href="gitlab-activity-0.1.5.min.css">
+<link rel="stylesheet" href="gitlab-activity.min.css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
 <script type="text/javascript" src="gitlab-activity.min.js"></script>
