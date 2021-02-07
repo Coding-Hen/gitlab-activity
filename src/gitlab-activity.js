@@ -1,5 +1,5 @@
 //Github written by caseyscarborough: https://github.com/caseyscarborough/github-activity
-//Modified by _HeN_ (Coding-HeN) for Gitlab: https://gitlab.com/Coding-Hen/gitlab-activity
+//Modified by _HeN_ (Coding-HeN) for Gitlab: https://github.com/Coding-Hen/gitlab-activity
 var GitLabActivity = (function() {
     'use strict';
     var lastItem = false;

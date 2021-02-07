@@ -1,6 +1,6 @@
 /*!
  * Modified for GitLab Activity Stream by Coding-HeN - V1.0.0 - 26/8/2018
- * https://gitlab.com/Coding-Hen/gitlab-activity
+ * https://github.com/Coding-Hen/gitlab-activity
  * GitHub Activity Stream - v0.1.4 - 10/7/2015
  * https://github.com/caseyscarborough/github-activity
  *
@@ -9,7 +9,7 @@
  * http://opensource.org/licenses/MIT
  */
 
- .gha-feed {
+.gha-feed {
   width: 100%;
   height: 100%;
   background: #fff;
