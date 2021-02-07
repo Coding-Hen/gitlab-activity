@@ -1,5 +1,5 @@
 # Gitlab Activity Stream Widget
-# This is a modified copy of the Github-activity by caseyscarborough (https://github.com/caseyscarborough/github-activity)
+This is a modified copy of the Github-activity by caseyscarborough (https://github.com/caseyscarborough/github-activity)
 
 This is a small Javascript plugin that creates a stream of your recent Gitlab activity. It displays the user's name, username, photo, and a list of each individual activity type. Click [here](https://www.henry-slim.co.uk/gitlab-activity-demo) for a demo.
 
@@ -13,13 +13,13 @@ The two dependencies for the plugin are the [Mustache](https://github.com/janl/m
 
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-<link rel="stylesheet" href="github-activity-0.1.5.min.css">
+<link rel="stylesheet" href="gitlab-activity-0.1.5.min.css">
 
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
 <script type="text/javascript" src="gitlab-activity.min.js"></script>
 ```
 
-The files can be downloaded from the [tags page](https://gitlab.com/Coding-Hen/gitlab-activity/tags).
+The files can be downloaded from the [tags page](https://github.com/Coding-Hen/gitlab-activity/releases/tag).
 
 If you'd like to build the files yourself:
 
@@ -29,7 +29,7 @@ npm install bower
 npm install grunt-cli
 
 # Clone the repository
-git clone https://gitlab.com/Coding-Hen/gitlab-activity.git
+git clone https://github.com/Coding-Hen/gitlab-activity.git
 cd gitlab-activity
 
 # Install dependencies
